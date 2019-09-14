@@ -17,7 +17,7 @@ import { AdminCreate, AdminEdit, AdminList } from './models/admins'
 const authClientOptions = {
   storageKey: 'feathers-jwt', // The key in localStorage used to store the authentication token
   authenticate: { // Options included in calls to Feathers client.authenticate
-    strategy: 'admin' // The authentication strategy Feathers should use
+    strategy: 'local' // The authentication strategy Feathers should use
   },
   permissionsKey: 'permissions', // The key in localStorage used to store permissions from decoded JWT
   permissionsField: 'roles', // The key in the decoded JWT containing the user's role

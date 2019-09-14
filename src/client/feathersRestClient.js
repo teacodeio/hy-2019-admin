@@ -15,9 +15,9 @@ const restClient = rest(APIEndpoint)
 app.configure(restClient.fetch(window.fetch))
 
 app.configure(auth({
-  jwtStrategy: 'jwtAdmin',
+  jwtStrategy: 'jwt',
   storage: window.localStorage,
-  header: 'authorization-admin'
+  header: 'authorization'
 }))
 
 app.hooks(appHooks)
