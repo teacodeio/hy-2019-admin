@@ -4,6 +4,7 @@ import { authClient } from 'ra-data-feathers'
 import englishMessages from 'ra-language-english'
 
 import Person from '@material-ui/icons/Person'
+import Image from '@material-ui/icons/Image'
 
 import feathersRestClient from './client/feathersRestClient'
 import createRealtimeSaga from './redux/sagas/createRealtimeSaga'
@@ -13,6 +14,7 @@ import { defaultTheme } from './themes'
 import dataProvider from './dataProvider'
 
 import { UserCreate, UserEdit, UserList } from './models/users'
+import {ImagesCreate, ImagesList, ImagesEdit} from "./models/images";
 
 const authClientOptions = {
   storageKey: 'feathers-jwt', // The key in localStorage used to store the authentication token
@@ -53,6 +55,13 @@ const App = () =>
       list={UserList}
       create={UserCreate}
       edit={UserEdit}
+    />
+    <Resource
+      name={'images'}
+      icon={Image}
+      list={ImagesList}
+      create={ImagesCreate}
+      edit={ImagesEdit}
     />
   </Admin>
 
