@@ -45,7 +45,7 @@ const EditActions = ({ basePath, data }) => (
   </CardActions>
 )
 
-export const AdminList = props => (
+export const UserList = props => (
   <List
     {...props}
     filters={<Filters />}
@@ -60,7 +60,7 @@ export const AdminList = props => (
   </List>
 )
 
-export const AdminCreate = (props) => (
+export const UserCreate = (props) => (
   <Create
     {...props}
     actions={<CreateActions />}
@@ -80,7 +80,7 @@ export const AdminCreate = (props) => (
   </Create>
 )
 
-export const AdminEdit = (props) => (
+export const UserEdit = (props) => (
   <Edit
     {...props}
     actions={<EditActions />}

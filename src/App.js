@@ -12,7 +12,7 @@ import { defaultTheme } from './themes'
 
 import dataProvider from './dataProvider'
 
-import { AdminCreate, AdminEdit, AdminList } from './models/admins'
+import { UserCreate, UserEdit, UserList } from './models/users'
 
 const authClientOptions = {
   storageKey: 'feathers-jwt', // The key in localStorage used to store the authentication token
@@ -48,11 +48,11 @@ const App = () =>
     theme={defaultTheme}
   >
     <Resource
-      name={'admins'}
+      name={'users'}
       icon={Person}
-      list={AdminList}
-      create={AdminCreate}
-      edit={AdminEdit}
+      list={UserList}
+      create={UserCreate}
+      edit={UserEdit}
     />
   </Admin>
 
