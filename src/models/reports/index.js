@@ -72,7 +72,7 @@ export const ReportsList = props => (
 export const ReportsCreate = (props) => (
 	<Create
 		{...props}
-		title='User Create'
+		title='Reports Create'
 		actions={<CreateActions />}
 	>
 		<SimpleForm>
