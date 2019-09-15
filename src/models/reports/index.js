@@ -6,9 +6,6 @@ import {
 	TextField,
 	Filter,
 	SearchInput,
-	Create,
-	SimpleForm,
-	TextInput,
 	Edit,
 	CardActions,
 	ListButton,
@@ -16,8 +13,9 @@ import {
 	FormTab,
 	required,
 	Datagrid,
-	NumberField,
-	NumberInput,
+	Create,
+	SimpleForm,
+	TextInput
 } from 'react-admin'
 import DateFilters from '../../elements/DateFilters'
 import DuplicateButton from '../../elements/DuplicateButton'
@@ -35,12 +33,6 @@ export const Filters = (props) => (
 	</Filter>
 )
 
-const CreateActions = ({ basePath }) => (
-	<CardActions>
-		<ListButton basePath={basePath} />
-	</CardActions>
-)
-
 const EditActions = ({ basePath, data }) => (
 	<CardActions>
 		<ListButton basePath={basePath} />
@@ -48,36 +40,62 @@ const EditActions = ({ basePath, data }) => (
 	</CardActions>
 )
 
-export const RapportsList = props => (
+const CreateActions = ({ basePath }) => (
+	<CardActions>
+		<ListButton basePath={basePath} />
+	</CardActions>
+)
+
+export const ReportsList = props => (
 	<List
 		{...props}
 		filters={<Filters />}
-		title='Rapport List'
+		title='Reports List'
 	>
 		<Datagrid
 			rowClick='edit'
 		>
 			<TextField
 				source={'placeName'}
-				validate={required()}
 			/>
 			<TextField
 				source={'placeStreet'}
-				validate={required()}
 			/>
 			<TextField
 				source={'estimatedButts'}
-				validate={required()}
 			/>
 			<DateField source='createdAt' />
 		</Datagrid>
 	</List>
 )
 
-export const RapportsEdit = (props) => (
+export const ReportsCreate = (props) => (
+	<Create
+		{...props}
+		title='User Create'
+		actions={<CreateActions />}
+	>
+		<SimpleForm>
+			<TextInput
+				source={'placeName'}
+				validate={required()}
+			/>
+			<TextInput
+				source={'placeStreet'}
+				validate={required()}
+			/>
+			<TextInput
+				source={'estimatedButts'}
+				validate={required()}
+			/>
+		</SimpleForm>
+	</Create>
+)
+
+export const ReportsEdit = (props) => (
 	<Edit
 		{...props}
-		title='Rapport Edit'
+		title='Reports Edit'
 		actions={<EditActions />}
 	>
 		<TabbedForm redirect={false}>

@@ -15,7 +15,7 @@ import { defaultTheme } from './themes'
 import dataProvider from './dataProvider'
 
 import { UserCreate, UserEdit, UserList } from './models/users'
-import { RapportsEdit, RapportsList } from './models/rapports'
+import { ReportsEdit, ReportsList, ReportsCreate } from './models/reports'
 import {ImagesCreate, ImagesList, ImagesEdit} from "./models/images";
 
 const authClientOptions = {
@@ -59,10 +59,11 @@ const App = () =>
       edit={UserEdit}
     />
     <Resource
-      name={'rapports'}
+      name={'reports'}
       icon={Assessment}
-      list={RapportsList}
-      edit={RapportsEdit}
+      list={ReportsList}
+      create={ReportsCreate}
+      edit={ReportsEdit}
     />
     <Resource
       name={'images'}
