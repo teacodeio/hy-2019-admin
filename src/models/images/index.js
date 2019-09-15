@@ -49,6 +49,7 @@ const EditActions = ({ basePath, data }) => (
 export const ImagesList = props => (
   <List
     {...props}
+    title='Images List'
     filters={<Filters />}
   >
     <Datagrid
@@ -66,6 +67,7 @@ export const ImagesList = props => (
 export const ImagesCreate = (props) => (
   <Create
     {...props}
+    title='Image Create'
     actions={<CreateActions />}
   >
     <SimpleForm>
@@ -81,6 +83,7 @@ export const ImagesEdit = (props) => (
   <Edit
     {...props}
     actions={<EditActions />}
+    title='Image Edit'
   >
     <TabbedForm redirect={false}>
       <FormTab replace label='summary'>

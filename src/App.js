@@ -5,6 +5,7 @@ import englishMessages from 'ra-language-english'
 
 import Person from '@material-ui/icons/Person'
 import Image from '@material-ui/icons/Image'
+import Assessment from '@material-ui/icons/Assessment'
 
 import feathersRestClient from './client/feathersRestClient'
 import createRealtimeSaga from './redux/sagas/createRealtimeSaga'
@@ -14,6 +15,7 @@ import { defaultTheme } from './themes'
 import dataProvider from './dataProvider'
 
 import { UserCreate, UserEdit, UserList } from './models/users'
+import { RapportsEdit, RapportsList } from './models/rapports'
 import {ImagesCreate, ImagesList, ImagesEdit} from "./models/images";
 
 const authClientOptions = {
@@ -55,6 +57,12 @@ const App = () =>
       list={UserList}
       create={UserCreate}
       edit={UserEdit}
+    />
+    <Resource
+      name={'rapports'}
+      icon={Assessment}
+      list={RapportsList}
+      edit={RapportsEdit}
     />
     <Resource
       name={'images'}

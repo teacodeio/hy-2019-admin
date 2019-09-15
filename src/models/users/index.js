@@ -54,6 +54,7 @@ export const UserList = props => (
   <List
     {...props}
     filters={<Filters />}
+    title='User List'
   >
     <Datagrid
       rowClick='edit'
@@ -72,6 +73,7 @@ export const UserList = props => (
 export const UserCreate = (props) => (
   <Create
     {...props}
+    title='User Create'
     actions={<CreateActions />}
   >
     <SimpleForm>
@@ -91,7 +93,7 @@ export const UserCreate = (props) => (
 
 function getChoices (object = {}) {
   return Object.keys(object).map(key => ({
-    id: key,
+    id: object[key],
     name: inflection.transform(object[key], ['singularize', 'capitalize'])
   }))
 }
@@ -103,6 +105,7 @@ export const UserEdit = (props) => (
   <Edit
     {...props}
     actions={<EditActions />}
+    title='User Edit'
   >
     <TabbedForm redirect={false}>
       <FormTab replace label='summary'>
