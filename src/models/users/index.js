@@ -15,10 +15,15 @@ import {
   TabbedForm,
   FormTab,
   required,
-  Datagrid
+  Datagrid,
+  NumberField,
+  NumberInput,
+  SelectInput
 } from 'react-admin'
 import DateFilters from '../../elements/DateFilters'
 import DuplicateButton from '../../elements/DuplicateButton'
+import inflection from 'inflection'
+
 
 export const Filters = (props) => (
   <Filter {...props}>
@@ -56,6 +61,10 @@ export const UserList = props => (
       <TextField source='email' />
       <DateField source='createdAt' />
       <DateField source='updatedAt' />
+      <NumberField source='totalPoints'/>
+      <NumberField source='spentPoints'/>
+      <NumberField source='level' />
+      <TextField source='rank' />
     </Datagrid>
   </List>
 )
@@ -80,6 +89,16 @@ export const UserCreate = (props) => (
   </Create>
 )
 
+function getChoices (object = {}) {
+  return Object.keys(object).map(key => ({
+    id: key,
+    name: inflection.transform(object[key], ['singularize', 'capitalize'])
+  }))
+}
+
+const rankTitle = ['Novice', 'Intermediate', 'Pro', 'Expert', 'Master', 'Grand Master', 'Perfect']
+
+
 export const UserEdit = (props) => (
   <Edit
     {...props}
@@ -99,6 +118,13 @@ export const UserEdit = (props) => (
         />
         <DateField source='createdAt' showTime />
         <DateField source='updatedAt' showTime />
+        <NumberInput source='totalPoints'/>
+        <NumberInput source='spentPoints'/>
+        <NumberInput source='level' />
+        <SelectInput
+        source={'rank'}
+        choices={getChoices(rankTitle)}
+        />
       </FormTab>
     </TabbedForm>
   </Edit>

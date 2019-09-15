@@ -15,7 +15,8 @@
     "react-admin": "^2.9.6",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "inflection": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
